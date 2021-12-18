@@ -1,0 +1,61 @@
+/* https://woocommerce.com/document/managing-orders/ */
+
+:root {
+	--processing-color: #16f;
+	--pending-color: #ff7;
+	--onhold-color: #ff7;
+	--completed-color: #ff7;
+	--cancelled-color: #ff7;
+	--refunded-color: #ff7;
+	--others-color: #777;
+  }
+
+html, body {
+	min-width: 300px;
+	min-height: 300px;
+	max-height: 450px;
+	overflow-x: hidden; /* Required to hide horizontal scroll on Firefox */
+	overflow-y: scroll; /* Required to hide horizontal scroll on Firefox */
+
+}
+
+.order {
+	border: #777777 solid 2px;
+	margin-bottom: 10px;
+}
+
+.order .header {
+	background-color: #777777;
+	color: white;
+}
+
+.order .footer {
+	text-align: center;
+	font-weight: bolder;
+	color: #777777;
+}
+
+.order.processing {
+	border: var(--processing-color) solid 2px;
+}
+
+.order.processing .header {
+	background-color: var(--processing-color);
+	color: white;
+}
+
+.order.processing .footer {
+	color: var(--processing-color);
+}
+
+.order div {
+	padding: 5px;
+}
+
+.status {
+	float: right;
+}
+
+.order a, .order:hover a {
+	text-decoration: none !important;
+}
