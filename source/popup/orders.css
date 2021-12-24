@@ -1,10 +1,10 @@
-html, body {
+html,
+body {
 	min-width: 300px;
 	min-height: 300px;
 	max-height: 450px;
 	overflow-x: hidden;
 	overflow-y: scroll;
-
 }
 
 .order {
@@ -14,7 +14,7 @@ html, body {
 
 .order .header {
 	background-color: var(--other-color);
-	color: white;
+	color: #fff;
 }
 
 .order .footer {
@@ -31,6 +31,7 @@ html, body {
 	float: right;
 }
 
-.order a, .order:hover a {
-	text-decoration: none !important;
+.order a,
+.order:hover a {
+	text-decoration: none;
 }
