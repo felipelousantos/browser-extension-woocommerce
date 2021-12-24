@@ -1,3 +1,14 @@
+const siteURL = "https://example.org";
+
+const statusList = {
+	'processing': '#5b841b',
+	'on-hold': '#94660c',
+	'failed': '#761919',
+	'completed': '#2e4453',
+	'trash': '#761919',
+	'other': '#777',
+};
+
 const orders = { 
 	0: {
 		"id": 737,
@@ -191,6 +202,38 @@ const orders = {
 	}
  };
 
-for (const order in orders) {
-  alert(orders[order].id);
+for (const orderKey in orders) {
+	const orderParent = document.getElementById("orders");
+	const orderContent = document.createElement("div");
+	const order = orders[orderKey];
+	const orderURL = siteURL + '/wp-admin/post.php?post=' + 773 + '&action=edit';
+	const orderPrice = order.currency_symbol + order.total + ' ' + order.currency;
+	const orderCustomer = order.billing.first_name + ' ' + order.billing.last_name;
+	orderContent.innerHTML = `
+	<a href="` + orderURL + `" target="_blank">
+		<div class="header">
+			<strong class="price">` + orderPrice + `</strong>
+			<small class="status">` + order.status + `</small>
+		</div>
+		<div class="footer">
+			<div class="id">#` + order.id + ' ' + orderCustomer + `</div>
+		</div>
+	</a>
+	`;
+	orderParent.appendChild(orderContent);
+	orderContent.classList.add("order", order.status);
+}
+
+const sheet = document.createElement('style');
+document.body.appendChild(sheet);
+const rootElement = document.querySelector(':root');
+
+for (const status in statusList) {
+	const color = statusList[status];
+	const colorVariable = '--' + status + '-color';
+	const colorSelector = ".order." + status;
+	rootElement.style.setProperty(colorVariable, color);
+	sheet.innerHTML += colorSelector + " {border-color: var(" + colorVariable + ");} ";
+	sheet.innerHTML += colorSelector + " .header" + " {background-color: var(" + colorVariable + ");} ";
+	sheet.innerHTML += colorSelector + " .footer" + " {color: var(" + colorVariable + ");} ";
 }

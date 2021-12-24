@@ -1,4 +1,4 @@
-import optionsStorage from './options-storage.js';
+import optionsStorage from './options/options-storage.js';
 
 async function init() {
 	const options = await optionsStorage.getAll();
