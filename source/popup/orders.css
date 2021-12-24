@@ -17,9 +17,20 @@ body {
 	color: #fff;
 }
 
+.order .header small {
+	font-style: italic;
+
+}
+
 .order .footer {
 	text-align: center;
 	font-weight: bolder;
+	color: var(--other-color);
+}
+
+.order .footer li {
+	text-align: left;
+	font-weight: normal;
 	color: var(--other-color);
 }
 
@@ -35,3 +46,16 @@ body {
 .order:hover a {
 	text-decoration: none;
 }
+
+.order .footer .button {
+	background-color: var(--other-color);
+	border: none;
+	color: white;
+	padding: 8px 16px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 12px;
+	margin: 4px 2px;
+	cursor: pointer;
+  }
