@@ -411,7 +411,7 @@ const orders = {
 		"billing": {
 			"first_name": "John",
 			"last_name": "Doe",
-			"company": "Lorem Ipsum LLC",
+			"company": "",
 			"address_1": "1335 Dallas Parkway",
 			"address_2": "",
 			"city": "Dallas",
@@ -424,7 +424,7 @@ const orders = {
 		"shipping": {
 			"first_name": "John",
 			"last_name": "Doe",
-			"company": "Lorem Ipsum LLC",
+			"company": "",
 			"address_1": "1335 Dallas Parkway",
 			"address_2": "",
 			"city": "Dallas",
@@ -582,15 +582,24 @@ const orders = {
 	}
  };
 
+function emptyFallback(value) {
+	if (value) {
+		return value;
+	} else {
+		return 'N/A';
+	}
+}
+
 for (const orderKey in orders) {
 	const orderParent = document.querySelector('#orders');
 	const orderContent = document.createElement('div');
 	const order = orders[orderKey];
 	const orderURL = siteURL + '/wp-admin/post.php?post=' + 773 + '&action=edit';
+	const orderDate = new Date(order.date_modified_gmt);
 	const orderPrice = order.currency_symbol + order.total + ' ' + order.currency;
 	const orderCustomer = order.billing.first_name + ' ' + order.billing.last_name;
-	const orderBillingAddress = order.billing.first_name + ' ' + order.billing.last_name + ' (' + order.billing.company + '), ' + order.billing.address_1 + ', ' + order.billing.address_2 + ', ' + order.billing.city + ', ' + order.billing.state + ', ' + order.billing.country + ', ' + order.billing.postcode + '.';
-	const orderShippingAddress = order.shipping.first_name + ' ' + order.shipping.last_name + ' (' + order.shipping.company + '), ' + order.shipping.address_1 + ', ' + order.shipping.address_2 + ', ' + order.shipping.city + ', ' + order.shipping.state + ', ' + order.shipping.country + ', ' + order.shipping.postcode + '.';
+	const orderBilling = order.billing.first_name + ' ' + order.billing.last_name + ' (' + emptyFallback(order.billing.company) + '), ' + order.billing.address_1 + ', ' + emptyFallback(order.billing.address_2) + ', ' + order.billing.city + ', ' + order.billing.state + ', ' + order.billing.country + ', ' + order.billing.postcode + '.';
+	const orderShipping = order.shipping.first_name + ' ' + order.shipping.last_name + ' (' + emptyFallback(order.shipping.company) + '), ' + order.shipping.address_1 + ', ' + emptyFallback(order.shipping.address_2) + ', ' + order.shipping.city + ', ' + order.shipping.state + ', ' + order.shipping.country + ', ' + order.shipping.postcode + '.';
 	orderContent.innerHTML = `
 		<div class="header">
 			<strong class="price">` + orderPrice + `</strong>
@@ -599,10 +608,11 @@ for (const orderKey in orders) {
 		<div class="footer">
 		<details>
 			<summary class="id">#` + order.id + ' ' + orderCustomer + `</summary>
-			<ul>
-				<li>Billing Address: ` + orderBillingAddress + `</li>
-				<li>Shipping Address: ` + orderShippingAddress + `</li>
-			</ul>
+			<p class="date">` + orderDate.toString() + `</p>
+			<hr>
+			<p><span class="section">Billing Address:</span> ` + orderBilling + `</p>
+			<hr>
+			<p><span class="section">Shipping Address:</span> ` + orderShipping + `</p>
 			<a class="button" href="` + orderURL + `" target="_blank">View order</a>
 		</details>
 		</div>

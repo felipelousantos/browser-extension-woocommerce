@@ -28,10 +28,14 @@ body {
 	color: var(--other-color);
 }
 
-.order .footer li {
+.order .footer p {
 	text-align: left;
 	font-weight: normal;
 	color: var(--other-color);
+}
+
+.order .footer p .section {
+	font-weight: bolder;
 }
 
 .order div {
@@ -59,3 +63,11 @@ body {
 	margin: 4px 2px;
 	cursor: pointer;
   }
+
+  .order .footer details {
+    padding: 0 15px;
+}
+
+.order .footer details .date {
+    text-align: center;
+}
