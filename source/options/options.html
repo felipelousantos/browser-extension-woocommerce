@@ -1,36 +1,22 @@
 <!doctype html>
 <meta charset="utf-8">
 <title>Options</title>
-<link rel="stylesheet" href="chrome://global/skin/in-content/common.css">
 <link rel="stylesheet" href="options.css">
 
 <form id="options-form" class="detail-view-container">
-	<h3>Color Picker</h3>
-	<div class="color-picker">
-		<div class="color-inputs">
-			<label class="color-input">
-				<span>R</span>
-				<input type="range" min="0" max="255" name="colorRed">
-				<input type="number" name="colorRed" min="0" max="255">
-			</label>
-			<label class="color-input">
-				<span>G</span>
-				<input type="range" min="0" max="255" name="colorGreen">
-				<input type="number" name="colorGreen" min="0" max="255">
-			</label>
-			<label class="color-input">
-				<span>B</span>
-				<input type="range" min="0" max="255" name="colorBlue">
-				<input type="number" name="colorBlue" min="0" max="255">
-			</label>
-		</div>
-		<div class="color-output"></div>
-	</div>
-	<h3>Notice Content</h3>
+	<h3>WooCommerce REST API credentials</h3>
 	<div class="text-inputs">
-		<label class="text-input">
-			<span>Text</span>
-			<input type="text" name="text">
+		<label class="site-url">
+			<span>Site URL</span>
+			<input type="text" name="url" placeholder="https://example.com">
+		</label>
+		<label class="consumer-key">
+			<span>Consumer key</span>
+			<input type="text" name="consumerKey">
+		</label>
+		<label class="consumer-secret">
+			<span>Consumer secret</span>
+			<input type="password" name="consumerSecret">
 		</label>
 	</div>
 </form>

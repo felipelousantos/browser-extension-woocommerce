@@ -5,6 +5,28 @@ body {
 	max-height: 450px;
 	overflow-x: hidden;
 	overflow-y: scroll;
+	margin: 0px;
+}
+
+header {
+	display: flex;
+	justify-content: space-around;
+	align-items:center;
+	background-color: #7F54B3;
+	height: 35px;
+	margin-bottom: 10px;
+	position: sticky; 
+	top: 0;
+}
+
+header a {
+	color: white;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+#orders {
+	margin: 10px;
 }
 
 .order {
@@ -71,3 +93,24 @@ body {
 .order .footer details .date {
     text-align: center;
 }
+
+#loader {
+	height: 0;
+	width: 0;
+	padding: 15px;
+	border: 6px solid #ccc;
+	border-right-color: #888;
+	border-radius: 22px;
+	-webkit-animation: rotate 1s infinite linear;
+	position: absolute;
+	left: calc(50% - 15px);
+	top: calc(50% - 15px);
+  }
+  
+  @-webkit-keyframes rotate {
+	/* 100% keyframe for  clockwise. 
+	   use 0% instead for anticlockwise */
+	100% {
+	  -webkit-transform: rotate(360deg);
+	}
+  }

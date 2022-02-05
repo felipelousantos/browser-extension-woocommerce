@@ -3,63 +3,19 @@ html {
 	overflow-x: hidden; /* Required to hide horizontal scroll on Firefox */
 }
 
-/* For use with screen readers */
-.sr-only {
-	display: none;
-}
-
-/* Hide spinbox for number inputs */
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-	-webkit-appearance: none;
-	margin: 0;
-}
-
-input[type='number'] {
-	-moz-appearance: textfield;
-}
-
-input[type='number'],
-input[type='text'] {
-	padding: 0.25rem 0.375rem;
-}
-
-.color-picker {
+label {
 	display: flex;
-}
-
-.color-inputs {
-	flex: 1;
-}
-
-.color-input {
-	display: flex;
-	padding: 0.25rem;
+	justify-content: space-between;
 	align-items: center;
 }
 
-.color-input input[type='range'] {
-	flex: 1;
-	margin: 0 0.5rem;
-}
-
-.color-input input[type='number'] {
-	width: calc(3ch + 1rem);
-}
-
-.color-output {
-	width: 86px;
-	height: 86px;
-	margin: 0.5rem;
-}
-
-/* Firefox only */
-.only-firefox {
-	display: none;
-}
-
-@-moz-document url-prefix('') {
-	.only-firefox {
-		display: block;
-	}
-}
+input[type=text], input[type=password], input[type=url] {
+    width:70%;
+    border:2px solid #aaa;
+    border-radius:4px;
+    margin:8px 0;
+    outline:none;
+    padding:8px;
+    box-sizing:border-box;
+    transition:.3s;
+  }
